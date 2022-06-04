@@ -45,5 +45,5 @@ class MySpider(CrawlSpider):
             parsed_car = parse_car(response.body)
             filename = f"{parsed_car['Car Name'][0].replace(' ', '_')}.csv"
             if len(parsed_car)>0:
-                parsed_car.to_csv(os.path.join(outpath, filename))
+                parsed_car.to_csv(os.path.join(outpath, filename), index=0)
         self.log('crawling'.format(response.url))
